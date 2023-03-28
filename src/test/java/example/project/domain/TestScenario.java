@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class TestScenario {
@@ -27,7 +28,16 @@ public class TestScenario {
 
     @Test
     public void testEquality() {
-        fail();
+        assertEquals(s1.roadType, s2.roadType);
+        assertEquals(s1.weatherCondition, s2.weatherCondition);
+
+
+        if(s1.initEgoCarPos.get(0) - s2.initEgoCarPos.get(0) < 0.05 && s1.initEgoCarPos.get(1) - s2.initEgoCarPos.get(1) < 0.05) {
+            assertEquals(s1.initEgoCarPos, s2.initEgoCarPos);
+        }
+        else {
+            fail("Ego car positions are not equal");
+        }
         // delete the above line and implement this properly to test if two scenarios are equal.
         // Let's define our equality as follows:
         // (1) roadType and weatherCondition must be the same.

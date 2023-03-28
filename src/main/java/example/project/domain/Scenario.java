@@ -21,6 +21,18 @@ public class Scenario {
         initCarInFrontPos = null;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+
+        Scenario scenario = (Scenario) obj;
+        return roadType.equals(scenario.roadType)
+                && weatherCondition.equals(scenario.weatherCondition)
+                && initEgoCarPos.equals(scenario.initEgoCarPos)
+                && initCarInFrontPos.equals(scenario.initCarInFrontPos);
+    }
+
     public Scenario(String scenarioDescription) {
         // parse scenarioDescription and save the result to the class attributes
         // not implemented
